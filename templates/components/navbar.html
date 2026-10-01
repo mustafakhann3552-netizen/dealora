@@ -1,0 +1,104 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+
+    <div class="container">
+
+        <!-- Logo -->
+        <a class="navbar-brand fw-bold fs-3" href="{{ url_for('main.home') }}">
+            Deal Of The Day
+        </a>
+
+        <!-- Search -->
+        <form class="search-form d-flex position-relative" method="GET" action="{{ url_for('main.home') }}">
+
+            <input id="searchInput" class="form-control" type="search" name="q" autocomplete="off"
+                placeholder="Search Products..." value="{{ request.args.get('q','') }}">
+
+            <button type="submit" class="btn btn-primary ms-2">
+                Search
+            </button>
+
+            <div id="searchResults" class="search-results"></div>
+
+        </form>
+
+        <!-- Mobile Toggle -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <!-- Menu -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarMenu">
+
+            <ul class="navbar-nav">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('main.home') }}">
+                        Home
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('main.blogs') }}">
+                        Blogs
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('main.about') }}">
+                        About
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('main.contact') }}">
+                        Contact
+                    </a>
+                </li>
+
+                <!-- Mobile Categories -->
+
+                <li class="nav-item dropdown d-lg-none">
+
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                        Categories
+                    </a>
+
+                    <ul class="dropdown-menu">
+
+                        <!-- All Products -->
+                        <li>
+                            <a class="dropdown-item" href="{{ url_for('main.home') }}">
+                                All
+                            </a>
+                        </li>
+
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <!-- Database Categories -->
+                        {% for category in categories %}
+
+                        <li>
+                            <a class="dropdown-item" href="{{ url_for('main.category_detail', id=category.id) }}">
+                                {{ category.name }}
+                            </a>
+                        </li>
+
+
+                {% endfor %}
+
+            </ul>
+
+            </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>

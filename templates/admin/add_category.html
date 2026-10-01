@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Add Category{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+<h2>Add Category</h2>
+
+<form method="POST">
+
+<input
+class="form-control mb-3"
+name="name"
+placeholder="Category Name">
+
+<input
+class="form-control mb-3"
+name="slug"
+placeholder="Slug">
+
+<button class="btn btn-success">
+
+Save
+
+</button>
+
+</form>
+
+</div>
+
+{% endblock %}

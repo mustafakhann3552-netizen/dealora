@@ -1,0 +1,152 @@
+<footer class="footer">
+
+    <div class="footer-top">
+
+        <div class="container text-center">
+
+            <!-- Logo -->
+            <a href="{{ url_for('main.home') }}" class="footer-logo">
+                Deal Of The Day
+            </a>
+
+            <p class="footer-tagline">
+                Pakistan's Trusted Deals & Shopping Platform
+            </p>
+
+            <!-- Social Icons -->
+            <div class="footer-social">
+
+                <a href="https://facebook.com/YourPage" target="_blank"><i class="bi bi-facebook"></i></a>
+
+                <a href="https://instagram.com/YourPage" target="_blank"><i class="bi bi-instagram"></i></a>
+
+                <a href="https://youtube.com/@YourChannel" target="_blank"><i class="bi bi-youtube"></i></a>
+
+                <a href="https://linkedin.com/company/YourCompany" target="_blank"><i class="bi bi-linkedin"></i></a>
+
+                <a href="https://x.com/YourPage" target="_blank"><i class="bi bi-twitter-x"></i></a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer-middle">
+
+        <div class="container">
+
+            <div class="row gy-4">
+
+                <!-- Quick Links -->
+                <div class="col-lg-3 col-md-6">
+
+                    <h5>Quick Links</h5>
+
+                    <ul>
+
+                        <li><a href="{{ url_for('main.home') }}">Home</a></li>
+
+                        <li><a href="{{ url_for('main.blogs') }}">Blogs</a></li>
+
+                        <li><a href="{{ url_for('main.about') }}">About Us</a></li>
+
+                        <li><a href="{{ url_for('main.contact') }}">Contact</a></li>
+
+                    </ul>
+
+                </div>
+
+                <!-- Categories -->
+                <div class="col-lg-3 col-md-6">
+
+                    <h5>Categories</h5>
+
+                    <ul>
+
+                        {% for category in categories %}
+                        <li>
+                            <a href="{{ url_for('main.category_detail', id=category.id) }}">
+                                {{ category.name }}
+                            </a>
+                        </li>
+                        {% endfor %}
+
+                    </ul>
+
+                </div>
+
+                <!-- Customer -->
+                <div class="col-lg-3 col-md-6">
+
+                    <h5>Customer</h5>
+
+                    <ul>
+
+                        <li>
+                            <a href="{{ url_for('main.privacy_policy') }}">
+                                Privacy Policy
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ url_for('main.terms_conditions') }}">
+                                Terms & Conditions
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ url_for('main.affiliate_disclosure') }}">
+                                Affiliate Disclosure
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ url_for('main.disclaimer') }}">
+                                Disclaimer
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ url_for('main.cookie_policy') }}">
+                                Cookie Policy
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <!-- Contact -->
+                <div class="col-lg-3 col-md-6">
+
+                    <h5>Office</h5>
+
+                    <p>
+                        <i class="bi bi-geo-alt-fill"></i>
+                        Lahore, Pakistan
+                    </p>
+
+                    <a href="https://wa.me/923001234567" class="bi bi-telephone-fill">
+                        Chat on WhatsApp
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        <div class="container">
+
+            © {{ current_year }} Deal Of The Day Pakistan
+
+        </div>
+
+    </div>
+
+</footer>

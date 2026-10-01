@@ -1,0 +1,1431 @@
+/* ==========================================================
+   Deal Detail Page
+   Professional Premium UI
+========================================================== */
+
+:root{
+
+    --primary:#0d6efd;
+    --primary-dark:#0b5ed7;
+    --success:#198754;
+    --danger:#dc3545;
+
+    --text:#222;
+    --text-light:#666;
+
+    --border:#e8e8e8;
+
+    --bg:#f8f9fa;
+
+    --white:#ffffff;
+
+    --shadow:0 12px 35px rgba(0,0,0,.08);
+
+    --radius:18px;
+
+    --transition:.35s ease;
+
+}
+
+/* ==========================================================
+Body
+========================================================== */
+
+body{
+
+    background:var(--bg);
+
+    color:var(--text);
+
+}
+
+/* ==========================================================
+Breadcrumb
+========================================================== */
+
+.breadcrumb{
+
+    margin-bottom:25px;
+
+    background:#fff;
+
+    padding:14px 20px;
+
+    border-radius:14px;
+
+    box-shadow:0 5px 18px rgba(0,0,0,.05);
+
+}
+
+.breadcrumb a{
+
+    color:var(--primary);
+
+    text-decoration:none;
+
+    font-weight:600;
+
+}
+
+.breadcrumb a:hover{
+
+    color:var(--primary-dark);
+
+}
+
+.breadcrumb-item.active{
+
+    color:#666;
+
+}
+
+/* ==========================================================
+Main Section
+========================================================== */
+
+.deal-detail-section{
+
+    padding:20px 0 60px;
+
+}
+
+/* ==========================================================
+Image Card
+========================================================== */
+
+.deal-image-card{
+
+    position:relative;
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:20px;
+
+    box-shadow:var(--shadow);
+
+    overflow:hidden;
+
+    transition:var(--transition);
+
+}
+
+.deal-image-card:hover{
+
+    transform:translateY(-4px);
+
+}
+
+.main-deal-image{
+
+    width:100%;
+
+    height:520px;
+
+    object-fit:contain;
+
+    transition:.45s;
+
+    cursor:zoom-in;
+
+}
+
+.main-deal-image:hover{
+
+    transform:scale(1.04);
+
+}
+
+/* ==========================================================
+Discount Badge
+========================================================== */
+
+.deal-discount-badge{
+
+    position:absolute;
+
+    top:18px;
+
+    left:18px;
+
+    background:var(--danger);
+
+    color:#fff;
+
+    padding:8px 16px;
+
+    border-radius:40px;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    z-index:5;
+
+}
+
+/* ==========================================================
+Deal Info Card
+========================================================== */
+
+.deal-info{
+
+    background:#fff;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    box-shadow:var(--shadow);
+
+}
+
+/* ==========================================================
+Verified Badge
+========================================================== */
+
+.verified-badge{
+
+    display:inline-block;
+
+    background:#e9f8ef;
+
+    color:#198754;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+
+}
+
+/* ==========================================================
+Title
+========================================================== */
+
+.deal-title{
+
+    font-size:38px;
+
+    font-weight:800;
+
+    color:#222;
+
+    line-height:1.35;
+
+    margin-bottom:18px;
+
+}
+
+/* ==========================================================
+Meta
+========================================================== */
+
+.deal-meta{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    color:#666;
+
+    font-size:15px;
+
+}
+
+.deal-meta strong{
+
+    color:#222;
+
+}
+
+/* ==========================================================
+Rating
+========================================================== */
+
+.deal-rating{
+
+    font-size:18px;
+
+    color:#ffc107;
+
+    font-weight:600;
+
+}
+
+.deal-rating span{
+
+    color:#666;
+
+    font-size:15px;
+
+    margin-left:8px;
+
+}
+
+/* ==========================================================
+Price Box
+========================================================== */
+
+.price-box{
+
+    display:flex;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:18px;
+
+    margin-top:25px;
+
+    margin-bottom:20px;
+
+}
+
+.new-price{
+
+    color:#198754;
+
+    font-size:42px;
+
+    font-weight:800;
+
+    margin:0;
+
+}
+
+.old-price{
+
+    color:#999;
+
+    text-decoration:line-through;
+
+    font-size:22px;
+
+}
+
+/* ==========================================================
+Description
+========================================================== */
+
+.deal-short-description{
+
+    font-size:17px;
+
+    color:#555;
+
+    line-height:1.9;
+
+}
+
+/* ==========================================================
+Claim Button
+========================================================== */
+
+.claim-btn{
+
+    width:100%;
+
+    padding:16px;
+
+    font-size:19px;
+
+    font-weight:700;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:linear-gradient(
+        135deg,
+        #0d6efd,
+        #0b5ed7
+    );
+
+    transition:.35s;
+
+}
+
+.claim-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 10px 25px rgba(13,110,253,.35);
+
+}
+
+/* ==========================================================
+Features
+========================================================== */
+
+.deal-features{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:15px;
+
+}
+
+.feature-item{
+
+    background:#f8f9fa;
+
+    border:1px solid #ececec;
+
+    border-radius:12px;
+
+    padding:14px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    color:#444;
+
+    transition:.30s;
+
+}
+
+.feature-item:hover{
+
+    background:#fff;
+
+    border-color:#0d6efd;
+
+    transform:translateY(-3px);
+
+}
+
+/* ==========================================================
+Common Card
+========================================================== */
+
+.deal-card{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:var(--shadow);
+
+    margin-bottom:30px;
+
+}
+
+/* ==========================================================
+Section Title
+========================================================== */
+
+.section-title{
+
+    font-size:28px;
+
+    font-weight:800;
+
+    margin-bottom:22px;
+
+    color:#222;
+
+}
+
+/* ==========================================================
+   Description
+========================================================== */
+
+.description-text{
+
+    font-size:17px;
+
+    line-height:1.9;
+
+    color:#555;
+
+    margin:0;
+
+}
+
+/* ==========================================================
+Store Logo
+========================================================== */
+
+.store-logo{
+
+    max-width:150px;
+
+    max-height:70px;
+
+    object-fit:contain;
+
+}
+
+/* ==========================================================
+Store Information Table
+========================================================== */
+
+.table{
+
+    margin-bottom:0;
+
+}
+
+.table th{
+
+    width:35%;
+
+    color:#222;
+
+    font-weight:700;
+
+    padding:14px;
+
+    border-bottom:1px solid #ececec;
+
+}
+
+.table td{
+
+    color:#666;
+
+    padding:14px;
+
+    border-bottom:1px solid #ececec;
+
+}
+
+.table-striped tbody tr:nth-of-type(odd){
+
+    background:#fafafa;
+
+}
+
+/* ==========================================================
+Benefits List
+========================================================== */
+
+.deal-benefits{
+
+    margin:0;
+
+    padding:0;
+
+    list-style:none;
+
+}
+
+.deal-benefits li{
+
+    padding:14px 0;
+
+    font-size:16px;
+
+    color:#444;
+
+    border-bottom:1px solid #ececec;
+
+}
+
+.deal-benefits li:last-child{
+
+    border-bottom:none;
+
+}
+
+/* ==========================================================
+Share Section
+========================================================== */
+
+.share-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+}
+
+.share-buttons .btn{
+
+    min-width:150px;
+
+    border-radius:12px;
+
+    font-weight:700;
+
+    padding:12px 18px;
+
+    transition:.35s;
+
+}
+
+.share-buttons .btn:hover{
+
+    transform:translateY(-3px);
+
+}
+
+/* ==========================================================
+Sidebar Cards
+========================================================== */
+
+.deal-card h4{
+
+    font-size:22px;
+
+    font-weight:700;
+
+    margin-bottom:22px;
+
+}
+
+/* ==========================================================
+Badge
+========================================================== */
+
+.badge{
+
+    padding:8px 14px;
+
+    border-radius:25px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+}
+
+/* ==========================================================
+Product Information
+========================================================== */
+
+.table-responsive{
+
+    overflow-x:auto;
+
+}
+
+/* ==========================================================
+Description Card Hover
+========================================================== */
+
+.deal-card{
+
+    transition:.35s;
+
+}
+
+.deal-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 20px 45px rgba(0,0,0,.08);
+
+}
+
+/* ==========================================================
+Divider
+========================================================== */
+
+.section-divider{
+
+    width:100%;
+
+    height:1px;
+
+    background:#ececec;
+
+    margin:40px 0;
+
+}
+
+/* ==========================================================
+Info Box
+========================================================== */
+
+.info-box{
+
+    background:#f8f9fa;
+
+    border:1px solid #ececec;
+
+    border-radius:14px;
+
+    padding:18px;
+
+    margin-bottom:20px;
+
+}
+
+.info-box h5{
+
+    margin-bottom:12px;
+
+    font-weight:700;
+
+}
+
+.info-box p{
+
+    margin:0;
+
+    color:#666;
+
+    line-height:1.7;
+
+}
+
+/* ==========================================================
+Sticky Sidebar (Desktop)
+========================================================== */
+
+@media(min-width:992px){
+
+.sidebar-sticky{
+
+    position:sticky;
+
+    top:100px;
+
+}
+
+}
+
+/* ==========================================================
+Price Highlight
+========================================================== */
+
+.new-price{
+
+    text-shadow:0 2px 10px rgba(25,135,84,.15);
+
+}
+
+.old-price{
+
+    opacity:.8;
+
+}
+
+/* ==========================================================
+Animated Buttons
+========================================================== */
+
+.btn{
+
+    transition:.35s;
+
+}
+
+.btn:hover{
+
+    transform:translateY(-2px);
+
+}
+
+/* ==========================================================
+Selection Color
+========================================================== */
+
+::selection{
+
+    background:#0d6efd;
+
+    color:#fff;
+
+}
+
+/* ==========================================================
+   Related Deals Section
+========================================================== */
+
+.related-deals{
+
+    background:#f8f9fa;
+
+    padding:70px 0;
+
+}
+
+.section-heading{
+
+    text-align:center;
+
+    margin-bottom:45px;
+
+}
+
+.section-heading h2{
+
+    font-size:34px;
+
+    font-weight:800;
+
+    color:#222;
+
+    margin-bottom:10px;
+
+}
+
+.section-heading p{
+
+    color:#666;
+
+    font-size:17px;
+
+    margin:0;
+
+}
+
+/* ==========================================================
+Related Deal Card
+========================================================== */
+
+.related-card{
+
+    position:relative;
+
+    background:#fff;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+    height:100%;
+
+}
+
+.related-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 18px 45px rgba(0,0,0,.12);
+
+}
+
+.related-image{
+
+    width:100%;
+
+    height:220px;
+
+    object-fit:contain;
+
+    padding:18px;
+
+    transition:.35s;
+
+}
+
+.related-card:hover .related-image{
+
+    transform:scale(1.05);
+
+}
+
+.related-body{
+
+    padding:20px;
+
+}
+
+.related-body h5{
+
+    font-size:18px;
+
+    font-weight:700;
+
+    color:#222;
+
+    line-height:1.5;
+
+    min-height:56px;
+
+}
+
+.related-body .price-area{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-top:15px;
+
+}
+
+.related-body .new-price{
+
+    font-size:24px;
+
+    font-weight:800;
+
+    color:#198754;
+
+}
+
+.related-body .old-price{
+
+    font-size:16px;
+
+    color:#999;
+
+    text-decoration:line-through;
+
+}
+
+/* ==========================================================
+Discount Badge
+========================================================== */
+
+.discount-badge{
+
+    position:absolute;
+
+    top:15px;
+
+    left:15px;
+
+    background:#dc3545;
+
+    color:#fff;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    padding:8px 14px;
+
+    border-radius:30px;
+
+    z-index:10;
+
+}
+
+/* ==========================================================
+Newsletter
+========================================================== */
+
+.newsletter-section{
+
+    background:linear-gradient(135deg,#0d6efd,#0b5ed7);
+
+    color:#fff;
+
+}
+
+.newsletter-box{
+
+    text-align:center;
+
+    max-width:900px;
+
+    margin:auto;
+
+}
+
+.newsletter-box h2{
+
+    font-size:38px;
+
+    font-weight:800;
+
+    margin-bottom:18px;
+
+}
+
+.newsletter-box p{
+
+    font-size:18px;
+
+    margin-bottom:35px;
+
+    opacity:.95;
+
+}
+
+.newsletter-box input{
+
+    height:58px;
+
+    border:none;
+
+    border-radius:12px;
+
+}
+
+.newsletter-box button{
+
+    height:58px;
+
+    border-radius:12px;
+
+    font-weight:700;
+
+}
+
+/* ==========================================================
+CTA
+========================================================== */
+
+.cta-section{
+
+    background:#fff;
+
+}
+
+.cta-box{
+
+    text-align:center;
+
+    background:#f8f9fa;
+
+    border-radius:20px;
+
+    padding:60px 30px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+.cta-box h2{
+
+    font-size:36px;
+
+    font-weight:800;
+
+    margin-bottom:15px;
+
+}
+
+.cta-box p{
+
+    font-size:18px;
+
+    color:#666;
+
+    margin-bottom:30px;
+
+}
+
+.cta-box .btn{
+
+    padding:15px 40px;
+
+    border-radius:12px;
+
+    font-size:18px;
+
+    font-weight:700;
+
+}
+
+/* ==========================================================
+Scrollbar
+========================================================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#0d6efd;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#ececec;
+
+}
+
+/* ==========================================================
+Smooth Animation
+========================================================== */
+
+.deal-image-card,
+.deal-info,
+.deal-card,
+.related-card{
+
+    animation:fadeUp .6s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================================================
+Responsive
+========================================================== */
+
+@media (max-width:991px){
+
+    .main-deal-image{
+
+        height:360px;
+
+    }
+
+    .deal-title{
+
+        font-size:30px;
+
+    }
+
+    .new-price{
+
+        font-size:34px;
+
+    }
+
+    .section-heading h2{
+
+        font-size:28px;
+
+    }
+
+    .newsletter-box h2{
+
+        font-size:30px;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .deal-info{
+
+        padding:25px;
+
+    }
+
+    .deal-card{
+
+        padding:22px;
+
+    }
+
+    .deal-features{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .share-buttons{
+
+        flex-direction:column;
+
+    }
+
+    .share-buttons .btn{
+
+        width:100%;
+
+    }
+
+    .related-image{
+
+        height:180px;
+
+    }
+
+    .cta-box{
+
+        padding:40px 20px;
+
+    }
+
+}
+
+@media (max-width:576px){
+
+    .breadcrumb{
+
+        font-size:13px;
+
+    }
+
+    .deal-title{
+
+        font-size:24px;
+
+    }
+
+    .new-price{
+
+        font-size:28px;
+
+    }
+
+    .old-price{
+
+        font-size:18px;
+
+    }
+
+    .newsletter-box h2{
+
+        font-size:24px;
+
+    }
+
+    .newsletter-box p{
+
+        font-size:15px;
+
+    }
+
+    .section-heading h2{
+
+        font-size:24px;
+
+    }
+
+}
+
+/* ==========================================================
+Toast
+========================================================== */
+
+.deal-toast{
+
+    position:fixed;
+
+    right:30px;
+
+    bottom:30px;
+
+    background:#198754;
+
+    color:#fff;
+
+    padding:14px 22px;
+
+    border-radius:10px;
+
+    font-weight:600;
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+    transition:.3s;
+
+    z-index:9999;
+
+}
+
+.deal-toast.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+/* ==========================================================
+Animation
+========================================================== */
+
+.deal-card,
+.deal-info,
+.related-card{
+
+    opacity:0;
+
+    transform:translateY(30px);
+
+}
+
+.show-card{
+
+    opacity:1 !important;
+
+    transform:translateY(0) !important;
+
+    transition:.5s ease;
+
+}
+
+/* ==========================================================
+Back To Top
+========================================================== */
+
+.back-to-top{
+
+    position:fixed;
+
+    right:25px;
+
+    bottom:25px;
+
+    width:50px;
+
+    height:50px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#0d6efd;
+
+    color:#fff;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.3s;
+
+    z-index:9999;
+
+    box-shadow:0 10px 20px rgba(0,0,0,.15);
+
+}
+
+.back-to-top.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+.back-to-top:hover{
+
+    transform:translateY(-4px);
+
+}
+
+/* ==========================================================
+Wishlist
+========================================================== */
+
+.wishlist-btn.active{
+
+    background:#dc3545;
+
+    color:#fff;
+
+}
+
+/* ==========================================================
+Thumbnail
+========================================================== */
+
+.thumbnail-image{
+
+    cursor:pointer;
+
+    border:2px solid transparent;
+
+    border-radius:10px;
+
+    transition:.3s;
+
+}
+
+.thumbnail-image.active{
+
+    border-color:#0d6efd;
+
+}
+
+.thumbnail-gallery{
+
+    display:flex;
+
+    gap:12px;
+
+    margin-top:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.thumb{
+
+    width:80px;
+
+    height:80px;
+
+    object-fit:cover;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    border:2px solid transparent;
+
+    transition:.3s;
+
+}
+
+.thumb:hover{
+
+    transform:scale(1.05);
+
+}
+
+.thumb.active{
+
+    border:2px solid #0d6efd;
+
+}
+
+.main-deal-image{
+
+    width:100%;
+
+    border-radius:15px;
+
+}

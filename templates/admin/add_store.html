@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Add Store{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <h2>Add Store</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+
+        <input
+            class="form-control mb-3"
+            name="name"
+            placeholder="Store Name"
+            required>
+
+        <input
+            class="form-control mb-3"
+            name="website"
+            placeholder="Website"
+            required>
+
+        <label class="form-label">
+            Store Logo
+        </label>
+
+        <input
+            type="file"
+            class="form-control mb-3"
+            name="logo"
+            accept="image/*"
+            required>
+
+        <button class="btn btn-success">
+            Save Store
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

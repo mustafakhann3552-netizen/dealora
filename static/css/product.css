@@ -1,0 +1,397 @@
+.product-card{
+
+    border:1px solid #eee;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    background:#fff;
+
+    transition:.3s;
+
+    height:100%;
+}
+
+.product-card:hover{
+
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+}
+
+.product-image{
+
+    position:relative;
+
+    height:240px;
+
+    overflow:hidden;
+}
+
+.product-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+    background:#fff;
+}
+
+.discount{
+
+    position:absolute;
+
+    top:10px;
+
+    right:10px;
+
+    background:#ff3b30;
+
+    color:#fff;
+
+    padding:6px 10px;
+
+    border-radius:6px;
+
+    font-weight:bold;
+}
+
+.product-body{
+
+    padding:15px;
+}
+
+.price-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+}
+
+.price{
+
+    color:#16a34a;
+
+    font-size:26px;
+
+    font-weight:700;
+
+    margin:0;
+}
+
+.old-price{
+
+    color:#999;
+
+    text-decoration:line-through;
+
+    font-size:15px;
+}
+
+.store-logo{
+
+    width:60px;
+
+    object-fit:contain;
+}
+
+.title{
+
+    margin:15px 0;
+
+    height:48px;
+
+    overflow:hidden;
+
+    font-weight:600;
+}
+
+.deal-btn{
+
+    display:block;
+
+    width:100%;
+
+    text-align:center;
+
+    background:#16a34a;
+
+    color:#fff;
+
+    padding:12px;
+
+    border-radius:8px;
+
+    text-decoration:none;
+
+    font-weight:700;
+}
+
+.deal-btn:hover{
+
+    background:#12863d;
+
+    color:#fff;
+}
+
+.bottom{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-top:15px;
+
+    font-size:13px;
+
+    color:#666;
+}
+
+/* Desktop */
+
+@media(min-width:992px){
+
+.col-lg-3{
+
+    width:25%;
+}
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.product-image{
+
+    height:170px;
+}
+
+.price{
+
+    font-size:20px;
+}
+
+.store-logo{
+
+    width:45px;
+}
+
+.title{
+
+    font-size:14px;
+}
+
+}
+
+
+/* =====================================
+   HOME BLOG SLIDER
+===================================== */
+
+.blog-slider-wrapper{
+    position:relative;
+}
+
+.blog-slider{
+    display:flex;
+    gap:20px;
+    overflow-x:hidden;
+    scroll-behavior:smooth;
+}
+
+.home-blog-card{
+    min-width:290px;
+    background:#fff;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.home-blog-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 30px rgba(0,0,0,.12);
+}
+
+.home-blog-image{
+    width:100%;
+    height:170px;
+    object-fit:cover;
+}
+
+.home-blog-content{
+    padding:18px;
+}
+
+.home-blog-date{
+    font-size:13px;
+    color:#777;
+}
+
+.home-blog-title{
+    font-size:18px;
+    font-weight:600;
+    line-height:1.5;
+    margin:12px 0;
+    height:55px;
+    overflow:hidden;
+}
+
+.slider-btn{
+    position:absolute;
+    top:45%;
+    transform:translateY(-50%);
+    width:45px;
+    height:45px;
+    border:none;
+    border-radius:50%;
+    background:#fff;
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
+    cursor:pointer;
+    z-index:99;
+}
+
+.left{
+    left:-20px;
+}
+
+.right{
+    right:-20px;
+}
+
+/* =====================================
+   BLOG PAGE
+===================================== */
+
+.blog-post{
+
+    margin-bottom:70px;
+
+    padding-bottom:50px;
+
+    border-bottom:1px solid #ececec;
+
+}
+
+.blog-post:last-child{
+
+    border-bottom:none;
+
+}
+
+.blog-image{
+
+    width:100%;
+
+    height:420px;
+
+    object-fit:cover;
+
+    border-radius:12px;
+
+    margin-bottom:25px;
+
+}
+
+.blog-date{
+
+    color:#888;
+
+    font-size:14px;
+
+    display:block;
+
+    margin-bottom:12px;
+
+}
+
+.blog-title{
+
+    font-size:34px;
+
+    font-weight:700;
+
+    line-height:1.4;
+
+    color:#222;
+
+    margin-bottom:18px;
+
+}
+
+.blog-description{
+
+    font-size:18px;
+
+    line-height:1.9;
+
+    color:#555;
+
+    margin-bottom:25px;
+
+    overflow:hidden;
+
+    display:-webkit-box;
+    display:box;
+
+    -webkit-box-orient:vertical;
+    box-orient:vertical;
+
+    -webkit-line-clamp:5;
+    line-clamp:5;
+
+}
+
+.read-more-btn{
+
+    display:inline-block;
+
+    background:#0d6efd;
+
+    color:#fff;
+
+    padding:12px 28px;
+
+    border-radius:8px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.read-more-btn:hover{
+
+    background:#0b5ed7;
+
+    color:#fff;
+
+}
+
+@media(max-width:768px){
+
+.blog-image{
+
+    height:230px;
+
+}
+
+.blog-title{
+
+    font-size:26px;
+
+}
+
+.blog-description{
+
+    font-size:16px;
+
+}
+
+}

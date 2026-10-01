@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <title>
+
+        Admin Panel |
+
+        {% block title %}
+        {% endblock %}
+
+    </title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/admin.css') }}">
+
+</head>
+
+<body>
+
+<div class="admin-wrapper">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <h3>
+
+                Deal Admin
+
+            </h3>
+
+        </div>
+
+        <ul>
+
+            <li>
+
+                <a href="{{ url_for('admin.dashboard') }}">
+
+                    <i class="bi bi-speedometer2"></i>
+
+                    Dashboard
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="{{ url_for('admin.deals') }}">
+
+                    <i class="bi bi-bag"></i>
+
+                    Deals
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="{{ url_for('admin.blogs') }}">
+
+                    <i class="bi bi-journal-text"></i>
+
+                    Blogs
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="{{ url_for('admin.categories') }}">
+
+                    <i class="bi bi-grid"></i>
+
+                    Categories
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="{{ url_for('admin.stores') }}">
+
+                    <i class="bi bi-shop"></i>
+
+                    Stores
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="#">
+
+                    <i class="bi bi-envelope"></i>
+
+                    Messages
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="#">
+
+                    <i class="bi bi-people"></i>
+
+                    Newsletter
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="{{ url_for('main.home') }}">
+
+                    <i class="bi bi-globe"></i>
+
+                    Visit Website
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main -->
+
+    <main class="content">
+
+        <nav class="topbar">
+
+            <h4>
+
+                {% block page_title %}
+                Dashboard
+                {% endblock %}
+
+            </h4>
+
+        </nav>
+
+        <div class="container-fluid py-4">
+
+            {% block content %}
+            {% endblock %}
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

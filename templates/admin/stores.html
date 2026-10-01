@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Stores{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+<h2>Stores</h2>
+
+<a href="/admin/stores/add" class="btn btn-primary mb-3">
+
+Add Store
+
+</a>
+
+<table class="table table-bordered">
+
+<tr>
+
+<th>ID</th>
+
+<th>Name</th>
+
+<th>Website</th>
+
+</tr>
+
+{% for store in stores %}
+
+<tr>
+
+<td>{{ store.id }}</td>
+
+<td>{{ store.name }}</td>
+
+<td>{{ store.website }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+{% endblock %}

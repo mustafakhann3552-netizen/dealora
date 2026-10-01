@@ -1,0 +1,220 @@
+{% extends "base.html" %}
+
+{% block title %}
+Latest Blogs
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- Heading -->
+
+    <div class="text-center mb-5">
+
+        <h1 class="fw-bold">
+            Latest Blogs
+        </h1>
+
+        <p class="text-muted">
+            Read the latest shopping guides, buying tips and product reviews.
+        </p>
+
+    </div>
+
+    <!-- Blog List -->
+
+   {% for blog in blogs %}
+
+<div class="blog-post">
+
+    <!-- Blog Image -->
+
+    {% if blog.image %}
+
+    <img
+        src="{{ url_for('static', filename='uploads/' + blog.image) }}"
+        class="blog-image"
+        alt="{{ blog.title }}">
+
+    {% endif %}
+
+    <!-- Blog Title -->
+
+    <h2 class="blog-title">
+
+        {{ blog.title }}
+
+    </h2>
+
+    <!-- Blog Description -->
+
+    <p class="blog-description">
+
+        {{ (blog.short_description or "") }}
+
+    </p>
+
+    <!-- Read More -->
+
+    <a
+        href="{{ url_for('main.blog_detail', slug=blog.slug) }}"
+        class="read-more-btn">
+
+        Read More »
+
+    </a>
+
+</div>
+
+{% else %}
+
+<h3 class="text-center">
+    No Blogs Found
+</h3>
+
+    {% endfor %}
+
+</div>
+
+<style>
+
+.blog-post{
+
+    margin-bottom:40px;
+
+    padding-bottom:30px;
+
+    border-bottom:1px solid #ececec;
+
+}
+
+.blog-image{
+
+    display:block;
+
+    width:100%;
+
+    height:420px;
+
+    object-fit:cover;
+
+    border-radius:12px;
+
+    margin-bottom:8px;
+
+}
+
+.blog-content{
+
+    margin-top:0;
+
+}
+
+.blog-date{
+
+    display:block;
+
+    color:#888;
+
+    font-size:14px;
+
+    margin:0 0 8px;
+
+}
+
+.blog-title{
+
+    font-size:34px;
+
+    font-weight:700;
+
+    color:#222;
+
+    line-height:1.3;
+
+    margin:0 0 12px;
+
+}
+
+.blog-description{
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    color:#555;
+
+    margin:0 0 18px;
+
+    display:-webkit-box;
+
+    -webkit-box-orient:vertical;
+
+    -webkit-line-clamp:5;
+
+    line-clamp:5;
+
+    overflow:hidden;
+
+}
+
+.read-more{
+
+    display:inline-block;
+
+    margin-top:0;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    color:#0d6efd;
+
+    text-decoration:none;
+
+}
+
+.read-more:hover{
+
+    color:#0a58ca;
+
+    text-decoration:underline;
+
+}
+
+@media(max-width:768px){
+
+.blog-post{
+
+    margin-bottom:30px;
+
+    padding-bottom:25px;
+
+}
+
+.blog-image{
+
+    height:220px;
+
+}
+
+.blog-title{
+
+    font-size:26px;
+
+}
+
+.blog-description{
+
+    font-size:16px;
+
+    line-height:1.7;
+
+}
+
+}
+
+</style>
+
+{% endblock %}

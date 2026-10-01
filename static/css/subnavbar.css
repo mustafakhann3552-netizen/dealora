@@ -1,0 +1,32 @@
+.category-bar{
+
+    background:#f8f9fa;
+    border-top:1px solid #ddd;
+    border-bottom:1px solid #ddd;
+
+}
+
+.category-list{
+
+    display:flex;
+    justify-content:center;
+    list-style:none;
+    margin:0;
+    padding:10px 0;
+    gap:30px;
+
+}
+
+.category-list li a{
+
+    color:#222;
+    text-decoration:none;
+    font-weight:600;
+
+}
+
+.category-list li a:hover{
+
+    color:#0d6efd;
+
+}

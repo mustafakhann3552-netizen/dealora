@@ -1,0 +1,162 @@
+<footer class="footer bg-dark text-white pt-5 pb-3">
+
+    <div class="container">
+
+        <div class="row">
+
+            <!-- About -->
+            <div class="col-lg-4 col-md-6 mb-4">
+
+                <h3 class="fw-bold">
+                    Deal Of The Day
+                </h3>
+
+                <p class="text-light mt-3">
+                    Discover the latest deals, discounts, coupons and
+                    shopping offers from trusted online stores in Pakistan.
+                </p>
+
+                <div class="d-flex gap-3 fs-4">
+
+                    <a href="#" class="text-white">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+
+                    <a href="#" class="text-white">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+
+                    <a href="#" class="text-white">
+                        <i class="bi bi-youtube"></i>
+                    </a>
+
+                    <a href="#" class="text-white">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+
+                    <a href="#" class="text-white">
+                        <i class="bi bi-twitter-x"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Quick Links -->
+
+            <div class="col-lg-2 col-md-6 mb-4">
+
+                <h5 class="fw-bold mb-3">
+                    Quick Links
+                </h5>
+
+                <ul class="list-unstyled">
+
+                    <li>
+                        <a href="{{ url_for('main.home') }}">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="{{ url_for('main.blogs') }}">Blogs</a>
+                    </li>
+
+                    <li>
+                        <a href="{{ url_for('main.about') }}">About</a>
+                    </li>
+
+                    <li>
+                        <a href="{{ url_for('main.contact') }}">Contact</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- Categories -->
+
+            <div class="col-lg-3 col-md-6 mb-4">
+
+                <h5 class="fw-bold mb-3">
+                    Categories
+                </h5>
+
+                <ul class="list-unstyled">
+
+                    {% for category in categories %}
+
+                    <li>
+
+                        <a href="{{ url_for('main.category_detail', id=category.id) }}">
+
+                            {{ category.name }}
+
+                        </a>
+
+                    </li>
+
+                    {% endfor %}
+
+                </ul>
+
+            </div>
+
+            <!-- Contact -->
+
+            <div class="col-lg-3 col-md-6 mb-4">
+
+                <h5 class="fw-bold mb-3">
+
+                    Contact
+
+                </h5>
+
+                <p>
+                    <i class="bi bi-envelope-fill me-2"></i>
+                    info@dealoftheday.pk
+                </p>
+
+                <p>
+                    <i class="bi bi-telephone-fill me-2"></i>
+                    +92 300 1234567
+                </p>
+
+                <p>
+                    <i class="bi bi-geo-alt-fill me-2"></i>
+                    Lahore, Pakistan
+                </p>
+
+            </div>
+
+        </div>
+
+        <hr class="border-secondary">
+
+        <div class="row">
+
+            <div class="col-md-6">
+
+                <small>
+
+                    © 2026 Deal Of The Day Pakistan.
+                    All Rights Reserved.
+
+                </small>
+
+            </div>
+
+            <div class="col-md-6 text-md-end">
+
+                <small>
+
+                    Some links are affiliate links.
+                    We may earn a commission at no extra cost to you.
+
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>

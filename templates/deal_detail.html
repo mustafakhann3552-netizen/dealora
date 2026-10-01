@@ -1,0 +1,845 @@
+{% extends "base.html" %}
+
+{% block title %}{{ deal.title }} | DealHub{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/deal.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ==========================================
+Breadcrumb
+========================================== -->
+
+<div class="container mt-4">
+
+    <nav aria-label="breadcrumb">
+
+        <ol class="breadcrumb">
+
+            <li class="breadcrumb-item">
+                <a href="{{ url_for('main.home') }}">
+                    Home
+                </a>
+            </li>
+
+            <li class="breadcrumb-item">
+                <a href="#">
+                    {{ deal.category.name }}
+                </a>
+            </li>
+
+            <li class="breadcrumb-item active" aria-current="page">
+                {{ deal.title }}
+            </li>
+
+        </ol>
+
+    </nav>
+
+</div>
+
+<!-- ==========================================
+Deal Detail
+========================================== -->
+
+<section class="deal-detail-section">
+
+    <div class="container">
+
+        <div class="row g-5">
+
+            <!-- ==================================
+            Product Image
+            =================================== -->
+
+            <div class="col-lg-6">
+
+                <div class="deal-image-card">
+
+                    {% if deal.discount %}
+
+                    <span class="deal-discount-badge">
+
+                        {{ deal.discount }}% OFF
+
+                    </span>
+
+                    {% endif %}
+
+                    <img src="{{ url_for('static', filename='uploads/' + deal.image) }}"
+                        class="img-fluid main-deal-image" alt="{{ deal.title }}">
+
+                </div>
+
+            </div>
+
+            <!-- ==================================
+            Product Information
+            =================================== -->
+
+            <div class="col-lg-6">
+
+                <div class="deal-info">
+
+                    <span class="verified-badge">
+
+                        ✅ Verified Deal
+
+                    </span>
+
+                    <h1 class="deal-title">
+
+                        {{ deal.title }}
+
+                    </h1>
+
+                    <div class="deal-meta">
+
+                        <span>
+
+                            Category :
+
+                            <strong>
+
+                                {{ deal.category.name }}
+
+                            </strong>
+
+                        </span>
+
+                        <span class="mx-3">
+
+                            |
+
+                        </span>
+
+                        <span>
+
+                            Store :
+
+                            <strong>
+
+                                {{ deal.store.name }}
+
+                            </strong>
+
+                        </span>
+
+                    </div>
+
+                    <!-- Rating -->
+
+                    <div class="deal-rating mt-3">
+
+                        ⭐⭐⭐⭐⭐
+
+                        <span>
+
+                            (4.9 / 5)
+
+                        </span>
+
+                    </div>
+
+                    <!-- Price -->
+
+                    <div class="price-box mt-4">
+
+                        <h2 class="new-price">
+
+                            Rs {{ "%.0f"|format(deal.new_price) }}
+
+                        </h2>
+
+                        {% if deal.old_price %}
+
+                        <span class="old-price">
+
+                            Rs {{ "%.0f"|format(deal.old_price) }}
+
+                        </span>
+
+                        {% endif %}
+
+                    </div>
+
+                    <!-- Short Description -->
+
+                    {% if deal.short_description %}
+
+                    <p class="deal-short-description mt-4">
+
+                        {{ deal.short_description }}
+
+                    </p>
+
+                    {% endif %}
+
+                    <!-- Claim Button -->
+
+                    <div class="mt-4">
+
+                        <a href="{{ deal.affiliate_url }}" target="_blank" class="btn btn-primary btn-lg claim-btn">
+
+                            🔥 {{ deal.button_text }}
+
+                        </a>
+
+                    </div>
+
+                    <!-- Security Info -->
+
+                    <div class="deal-features mt-5">
+
+                        <div class="feature-item">
+
+                            ✔ Secure Redirect
+
+                        </div>
+
+                        <div class="feature-item">
+
+                            ✔ Verified Affiliate Link
+
+                        </div>
+
+                        <div class="feature-item">
+
+                            ✔ Updated Daily
+
+                        </div>
+
+                        <div class="feature-item">
+
+                            ✔ Trusted Store
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+Product Description
+========================================================= -->
+
+<section class="deal-description-section py-5">
+
+    <div class="container">
+
+        <div class="row">
+
+            <!-- Description -->
+
+            <div class="col-lg-8">
+
+                <div class="deal-card">
+
+                    <h3 class="section-title">
+
+                        Product Description
+
+                    </h3>
+
+                    {% if deal.short_description %}
+
+                    <p class="description-text">
+
+                        {{ deal.short_description }}
+
+                    </p>
+
+                    {% else %}
+
+                    <p class="description-text">
+
+                        No detailed description available for this deal.
+
+                    </p>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+            <!-- Sidebar -->
+
+            <div class="col-lg-4">
+
+                <!-- Store Information -->
+
+                <div class="deal-card mb-4">
+
+                    <h4 class="section-title">
+
+                        Store Information
+
+                    </h4>
+
+                    {% if deal.program_logo %}
+
+                    <div class="text-center mb-3">
+
+                        <img src="{{ url_for('static', filename='uploads/' + deal.program_logo) }}"
+                            class="img-fluid store-logo" alt="{{ deal.store.name }}">
+
+                    </div>
+
+                    {% endif %}
+
+                    <table class="table table-borderless">
+
+                        <tr>
+
+                            <th>Store</th>
+
+                            <td>{{ deal.store.name }}</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Category</th>
+
+                            <td>{{ deal.category.name }}</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Published</th>
+
+                            <td>
+
+                                {{ deal.created_at.strftime('%d %B %Y') }}
+
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Status</th>
+
+                            <td>
+
+                                <span class="badge bg-success">
+
+                                    Active
+
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+                    </table>
+
+                </div>
+
+                <!-- Why Trust -->
+
+                <div class="deal-card">
+
+                    <h4 class="section-title">
+
+                        Why Choose This Deal?
+
+                    </h4>
+
+                    <ul class="deal-benefits">
+
+                        <li>✔ Verified Affiliate Link</li>
+
+                        <li>✔ Trusted Seller</li>
+
+                        <li>✔ Updated Daily</li>
+
+                        <li>✔ Safe Redirect</li>
+
+                        <li>✔ Genuine Discount</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+Specifications
+========================================================= -->
+
+<section class="pb-5">
+
+    <div class="container">
+
+        <div class="deal-card">
+
+            <h3 class="section-title">
+
+                Product Information
+
+            </h3>
+
+            <div class="table-responsive">
+
+                <table class="table table-striped align-middle">
+
+                    <tbody>
+
+                        <tr>
+
+                            <th width="30%">
+
+                                Product
+
+                            </th>
+
+                            <td>
+
+                                {{ deal.title }}
+
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>
+
+                                Store
+
+                            </th>
+
+                            <td>
+
+                                {{ deal.store.name }}
+
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>
+
+                                Category
+
+                            </th>
+
+                            <td>
+
+                                {{ deal.category.name }}
+
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>
+
+                                Current Price
+
+                            </th>
+
+                            <td>
+
+                                Rs {{ "%.0f"|format(deal.new_price) }}
+
+                            </td>
+
+                        </tr>
+
+                        {% if deal.old_price %}
+
+                        <tr>
+
+                            <th>
+
+                                Old Price
+
+                            </th>
+
+                            <td>
+
+                                Rs {{ "%.0f"|format(deal.old_price) }}
+
+                            </td>
+
+                        </tr>
+
+                        {% endif %}
+
+                        {% if deal.discount %}
+
+                        <tr>
+
+                            <th>
+
+                                Discount
+
+                            </th>
+
+                            <td>
+
+                                {{ deal.discount }}%
+
+                            </td>
+
+                        </tr>
+
+                        {% endif %}
+
+                        <tr>
+
+                            <th>
+
+                                Deal Added
+
+                            </th>
+
+                            <td>
+
+                                {{ deal.created_at.strftime('%d %B %Y') }}
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+Share Section
+========================================================= -->
+
+<section class="pb-5">
+
+    <div class="container">
+
+        <div class="deal-card text-center">
+
+            <h3 class="section-title">
+
+                Share This Deal
+
+            </h3>
+
+            <div class="share-buttons">
+
+                <a href="#" class="btn btn-primary m-2">
+
+                    Facebook
+
+                </a>
+
+                <a href="#" class="btn btn-success m-2">
+
+                    WhatsApp
+
+                </a>
+
+                <a href="#" class="btn btn-dark m-2">
+
+                    X
+
+                </a>
+
+                <button class="btn btn-outline-primary m-2 copy-link-btn">
+
+                    Copy Link
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+Related Deals
+========================================================= -->
+
+<section class="related-deals py-5">
+
+    <div class="container">
+
+        <div class="section-heading mb-4">
+
+            <h2>
+
+                🔥 Related Deals
+
+            </h2>
+
+            <p>
+
+                You may also like these deals
+
+            </p>
+
+        </div>
+
+        <div class="row">
+
+            {% for item in related_deals %}
+
+            <div class="col-lg-3 col-md-6 mb-4">
+
+                <div class="related-card">
+
+                    {% if item.discount %}
+
+                    <span class="discount-badge">
+
+                        {{ item.discount }}% OFF
+
+                    </span>
+
+                    {% endif %}
+
+                    <a href="{{ url_for('main.deal_detail', slug=item.slug) }}">
+
+                        <div class="deal-image-card">
+
+                            {% if deal.discount %}
+
+                            <span class="deal-discount-badge">
+
+                                {{ deal.discount }}% OFF
+
+                            </span>
+
+                            {% endif %}
+
+                            <!-- Main Image -->
+
+                            <img id="mainImage" src="{{ url_for('static', filename='uploads/' + deal.image) }}"
+                                class="img-fluid main-deal-image" alt="{{ deal.title }}">
+
+                            <!-- Thumbnails -->
+
+                            <div class="thumbnail-gallery mt-3">
+
+                                <img src="{{ url_for('static', filename='uploads/' + deal.image) }}"
+                                    class="thumb active" onclick="changeImage(this)">
+
+                                {% if deal.image2 %}
+
+                                <img src="{{ url_for('static', filename='uploads/' + deal.image2) }}" class="thumb"
+                                    onclick="changeImage(this)">
+
+                                {% endif %}
+
+                                {% if deal.image3 %}
+
+                                <img src="{{ url_for('static', filename='uploads/' + deal.image3) }}" class="thumb"
+                                    onclick="changeImage(this)">
+
+                                {% endif %}
+
+                                {% if deal.image4 %}
+
+                                <img src="{{ url_for('static', filename='uploads/' + deal.image4) }}" class="thumb"
+                                    onclick="changeImage(this)">
+
+                                {% endif %}
+
+                                {% if deal.image5 %}
+
+                                <img src="{{ url_for('static', filename='uploads/' + deal.image5) }}" class="thumb"
+                                    onclick="changeImage(this)">
+
+                                {% endif %}
+
+                                {% if deal.image6 %}
+
+                                <img src="{{ url_for('static', filename='uploads/' + deal.image6) }}" class="thumb"
+                                    onclick="changeImage(this)">
+
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                    <div class="related-body">
+
+                        <h5>
+
+                            {{ item.title[:60] }}{% if item.title|length > 60 %}...{% endif %}
+
+                        </h5>
+
+                        <div class="price-area">
+
+                            <span class="new-price">
+
+                                Rs {{ "%.0f"|format(item.new_price) }}
+
+                            </span>
+
+                            {% if item.old_price %}
+
+                            <span class="old-price">
+
+                                Rs {{ "%.0f"|format(item.old_price) }}
+
+                            </span>
+
+                            {% endif %}
+
+                        </div>
+
+                        <a href="{{ url_for('main.deal_detail', slug=item.slug) }}" class="btn btn-primary w-100 mt-3">
+
+                            View Deal
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% else %}
+
+            <div class="col-12">
+
+                <div class="alert alert-light text-center">
+
+                    No related deals found.
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+Newsletter
+========================================================= -->
+
+<section class="newsletter-section py-5">
+
+    <div class="container">
+
+        <div class="newsletter-box">
+
+            <h2>
+
+                Never Miss a Deal
+
+            </h2>
+
+            <p>
+
+                Subscribe and receive the latest deals directly in your inbox.
+
+            </p>
+
+            <form class="row justify-content-center">
+
+                <div class="col-lg-5">
+
+                    <input type="email" class="form-control form-control-lg" placeholder="Enter your email">
+
+                </div>
+
+                <div class="col-lg-2">
+
+                    <button class="btn btn-primary btn-lg w-100">
+
+                        Subscribe
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+Call To Action
+========================================================= -->
+
+<section class="cta-section py-5">
+
+    <div class="container">
+
+        <div class="cta-box">
+
+            <h2>
+
+                Looking for More Amazing Deals?
+
+            </h2>
+
+            <p>
+
+                Browse hundreds of verified offers from trusted online stores.
+
+            </p>
+
+            <a href="{{ url_for('main.home') }}" class="btn btn-warning btn-lg">
+
+                Browse More Deals
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/deal.js') }}"></script>
+{% endblock %}

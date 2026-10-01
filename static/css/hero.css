@@ -1,0 +1,78 @@
+.hero-section{
+
+    margin:25px 0;
+
+}
+
+.hero-image{
+
+    height:420px;
+    object-fit:cover;
+    border-radius:12px;
+
+}
+
+.carousel-caption{
+
+    left:8%;
+    right:auto;
+    bottom:18%;
+    text-align:left;
+
+}
+
+.carousel-caption h1{
+
+    font-size:48px;
+    font-weight:700;
+
+}
+
+.carousel-caption p{
+
+    font-size:22px;
+    margin-bottom:20px;
+
+}
+
+.carousel-caption .btn{
+
+    padding:12px 30px;
+    font-size:18px;
+
+}
+
+@media(max-width:991px){
+
+    .hero-image{
+
+        height:220px;
+
+    }
+
+    .carousel-caption{
+
+        bottom:12%;
+
+    }
+
+    .carousel-caption h1{
+
+        font-size:26px;
+
+    }
+
+    .carousel-caption p{
+
+        font-size:14px;
+
+    }
+
+    .carousel-caption .btn{
+
+        padding:8px 18px;
+        font-size:14px;
+
+    }
+
+}

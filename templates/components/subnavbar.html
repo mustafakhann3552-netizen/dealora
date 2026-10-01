@@ -1,0 +1,29 @@
+<div class="category-bar d-none d-lg-block">
+
+    <div class="container">
+
+        <ul class="category-list">
+
+            <!-- All Categories -->
+            <li>
+                <a href="{{ url_for('main.home') }}">
+                    All
+                </a>
+            </li>
+
+            <!-- Database Categories -->
+            {% for category in categories %}
+
+            <li>
+                <a href="{{ url_for('main.category_detail', id=category.id) }}">
+                    {{ category.name }}
+                </a>
+            </li>
+
+            {% endfor %}
+
+        </ul>
+
+    </div>
+
+</div>

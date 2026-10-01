@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}
+Deal Of The Day
+{% endblock %}
+
+{% block content %}
+
+<!-- Hero -->
+
+{% include "components/hero.html" %}
+
+<!-- Featured Deals -->
+
+<section class="container mt-5">
+
+    <h2 class="mb-4">
+
+        Featured Deals
+
+    </h2>
+
+    <div class="row">
+
+        {% for deal in featured_deals %}
+
+            {% include "components/product_card.html" %}
+
+        {% else %}
+
+            <div class="col-12">
+
+                <div class="alert alert-info">
+
+                    No featured deals found.
+
+                </div>
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}

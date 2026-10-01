@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %}
+All Products
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <h2 class="fw-bold">
+            All Deals
+        </h2>
+
+    </div>
+
+    <div class="row">
+
+        {% for deal in deals.items %}
+
+            {% include "components/product_card.html" %}
+
+        {% else %}
+
+            <div class="col-12">
+                <div class="alert alert-warning">
+                    No Deals Found.
+                </div>
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+    <nav class="mt-5">
+        <ul class="pagination justify-content-center">
+
+            {% if deals.has_prev %}
+            <li class="page-item">
+                <a class="page-link"
+                   href="{{ url_for('main.products', page=deals.prev_num) }}">
+                    Previous
+                </a>
+            </li>
+            {% endif %}
+
+            {% for page in deals.iter_pages() %}
+
+                {% if page %}
+
+                <li class="page-item {% if page==deals.page %}active{% endif %}">
+                    <a class="page-link"
+                       href="{{ url_for('main.products', page=page) }}">
+                        {{ page }}
+                    </a>
+                </li>
+
+                {% endif %}
+
+            {% endfor %}
+
+            {% if deals.has_next %}
+            <li class="page-item">
+                <a class="page-link"
+                   href="{{ url_for('main.products', page=deals.next_num) }}">
+                    Next
+                </a>
+            </li>
+            {% endif %}
+
+        </ul>
+    </nav>
+
+</div>
+
+{% endblock %}

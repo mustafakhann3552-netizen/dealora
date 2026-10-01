@@ -1,0 +1,118 @@
+<div class="col-xl-3 col-lg-4 col-md-6 col-6 mb-4">
+
+    <div class="product-card">
+
+        <!-- ========================================= -->
+        <!-- Product Image -->
+        <!-- ========================================= -->
+
+        <div class="product-image">
+
+            <a href="{{ url_for('main.deal_detail', slug=deal.slug) }}">
+
+                <img
+                    src="{{ url_for('static', filename='uploads/' + deal.image) }}"
+                    alt="{{ deal.title }}"
+                >
+
+            </a>
+
+            {% if deal.discount %}
+
+            <span class="discount">
+
+                -{{ deal.discount }}%
+
+            </span>
+
+            {% endif %}
+
+        </div>
+
+        <!-- ========================================= -->
+        <!-- Product Body -->
+        <!-- ========================================= -->
+
+        <div class="product-body">
+
+            <!-- Price + Store Logo -->
+
+            <div class="price-row">
+
+                <div>
+
+                    <h4 class="price">
+
+                        Rs {{ "{:,.0f}".format(deal.new_price) }}
+
+                    </h4>
+
+                    {% if deal.old_price %}
+
+                    <div class="old-price">
+
+                        Rs {{ "{:,.0f}".format(deal.old_price) }}
+
+                    </div>
+
+                    {% endif %}
+
+                </div>
+
+                {% if deal.store.logo %}
+
+                <img
+                    src="{{ url_for('static', filename='logos/' + deal.store.logo) }}"
+                    alt="{{ deal.store.name }}"
+                    class="store-logo"
+                >
+
+                {% endif %}
+
+            </div>
+
+            <!-- Product Title -->
+
+            <h6 class="title">
+
+                <a href="{{ url_for('main.deal_detail', slug=deal.slug) }}">
+
+                    {{ deal.title }}
+
+                </a>
+
+            </h6>
+
+            <!-- View Deal Button -->
+
+            <a
+                href="{{ url_for('main.deal_detail', slug=deal.slug) }}"
+                class="deal-btn">
+
+                View Deal
+
+            </a>
+
+            <!-- Footer -->
+
+            <div class="bottom">
+
+                <span>
+
+                    {{ deal.store.name }}
+
+                </span>
+
+                <span>
+
+                    {{ deal.created_at.strftime('%d %b %Y') }}
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
